@@ -18,17 +18,16 @@ const GET_CART_ITEMS = gql`
 
 const CartDropdownContainer = () => (
   <Mutation mutation={TOGGLE_CART_HIDDEN}>
-  {
-    toggleCartHidden => (
+    {toggleCartHidden => (
       <Query query={GET_CART_ITEMS}>
-      {
-        ({ data: { cartItems } }) => (
-          <CartDropdown cartItems={cartItems} toggleCartHidden={toggleCartHidden} />
-        )
-      }
+        {({ data: { cartItems } }) => (
+          <CartDropdown
+            cartItems={cartItems}
+            toggleCartHidden={toggleCartHidden}
+          />
+        )}
       </Query>
-    )
-  }
+    )}
   </Mutation>
 );
 
